@@ -1,5 +1,6 @@
 import asyncio
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 import os
 import re
 import pandas as pd
@@ -13,12 +14,14 @@ from playwright.async_api import async_playwright
 INPUT_EXCEL = "WB_competitor_input - Copy.xlsx"
 OUTPUT_EXCEL = "WB_competitor_input_Prices.xlsx"
 
-START_DATE_STR = "2026-09-08"
+LONDON_TZ = ZoneInfo("Europe/London")
+
+START_DATE_STR = datetime.now(LONDON_TZ).strftime("%Y-%m-%d")
 END_DATE_STR = "2026-11-30"
 
 MIN_MATCH_SCORE = 0.70
 
-HEADLESS = False
+HEADLESS = True
 
 PAGE_TIMEOUT = 60000
 
