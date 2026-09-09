@@ -31,3 +31,9 @@ jobs:
       - name: Run GYG scraper
         run: |
           python WB.py
+           - name: Upload Excel result
+        uses: actions/upload-artifact@v4
+        with:
+          name: GYG-Price-Report
+          path: WB_competitor_input_Prices.xlsx
+          retention-days: 30
