@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 import os
 import re
 import pandas as pd
-import pandas as pd
 from playwright.async_api import async_playwright
 from zoneinfo import ZoneInfo
 
