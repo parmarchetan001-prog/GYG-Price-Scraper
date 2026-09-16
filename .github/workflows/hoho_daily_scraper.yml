@@ -1,0 +1,40 @@
+name: HOHO Daily Price Scraper
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+      timezone: "Europe/London"
+
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Install Playwright Chromium
+        run: |
+          playwright install --with-deps chromium
+
+      - name: Run HOHO scraper
+        run: |
+          python HOHO.py
+
+      - name: Upload Excel result
+        uses: actions/upload-artifact@v4
+        with:
+          name: HOHO-Price-Report
+          path: HOHO_competitor_Prices.xlsx
+          retention-days: 30
