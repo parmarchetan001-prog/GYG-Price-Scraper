@@ -2,7 +2,7 @@ name: GYG Daily Price Scraper
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 5 * * *"
       timezone: "Europe/London"
 
   workflow_dispatch:
