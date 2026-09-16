@@ -17,7 +17,7 @@ OUTPUT_EXCEL = "WB_competitor_input_Prices.xlsx"
 LONDON_TZ = ZoneInfo("Europe/London")
 
 START_DATE_STR = datetime.now(LONDON_TZ).strftime("%Y-%m-%d")
-END_DATE_STR = "2026-11-30"
+END_DATE_STR = "2026-12-31"
 
 MIN_MATCH_SCORE = 0.70
 
