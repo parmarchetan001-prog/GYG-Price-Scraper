@@ -2,7 +2,7 @@ name: HOHO Daily Price Scraper
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 4 * * *"
       timezone: "Europe/London"
 
   workflow_dispatch:
