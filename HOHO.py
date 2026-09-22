@@ -15,8 +15,15 @@ OUTPUT_EXCEL = "HOHO_competitor_Prices.xlsx"
 
 LONDON_TZ = ZoneInfo("Europe/London")
 
-START_DATE_STR = datetime.now(LONDON_TZ).strftime("%Y-%m-%d")
-END_DATE_STR   = "2026-12-31"
+START_DATE_STR = os.getenv(
+    "HOHO_START_DATE",
+    datetime.now(LONDON_TZ).strftime("%Y-%m-%d")
+)
+
+END_DATE_STR = os.getenv(
+    "HOHO_END_DATE",
+    "2026-10-31"
+)
 
 # Minimum score required to accept a product option
 MIN_MATCH_SCORE = 0.70
