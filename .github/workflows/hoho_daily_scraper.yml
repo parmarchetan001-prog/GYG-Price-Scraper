@@ -69,16 +69,16 @@ jobs:
           python-version: "3.13"
       
       - name: Install Python dependencies
-      run: |
-        pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
 
-        - name: Download HOHO parts
-          uses: actions/download-artifact@v5
+      - name: Download HOHO parts
+        uses: actions/download-artifact@v5
         with:
           pattern: HOHO-Part-*
           path: hoho_parts
 
-        - name: Merge HOHO Excel files
+      - name: Merge HOHO Excel files
         run: |
           python - <<'PY'
           import glob
@@ -146,7 +146,7 @@ jobs:
           print(f"Merged {len(files)} HOHO files into {output}")
           PY
 
-         - name: Upload final HOHO report
+      - name: Upload final HOHO report
         uses: actions/upload-artifact@v4
         with:
           name: HOHO-Price-Report
